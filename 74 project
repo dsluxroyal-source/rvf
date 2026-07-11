@@ -1,0 +1,36 @@
+contacts = {
+    "kamran": "03001234567",
+    "ali": "03111222333",
+    "ahmed": "03221234567",
+    "fatima": "03331234567",
+    "ayesha": "03441234567",
+    "usman": "03551234567",
+    "hassan": "03661234567"
+}
+def suggest_contact():
+    search = input("\nEnter contact name: ").strip().lower()
+    if not search:
+        print("Please enter a name.")
+        return
+    matches = []
+    for name in contacts:
+        if search in name:
+            matches.append(name)
+    print("\n===== Suggestions =====")
+    if matches:
+        for name in matches:
+            print(f"{name.title()} : {contacts[name]}")
+    else:
+        print("No matching contacts found.")
+while True:
+    print("\n===== AI Contact Suggestion System =====")
+    print("1. Search Contact")
+    print("2. Exit")
+    choice = input("Choose an option: ")
+    if choice == "1":
+        suggest_contact()
+    elif choice == "2":
+        print("Goodbye!")
+        break
+    else:
+        print("Invalid choice.")
